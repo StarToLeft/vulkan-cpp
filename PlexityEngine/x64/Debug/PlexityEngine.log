@@ -1,0 +1,4 @@
+﻿  Using triplet "x64-windows" from "G:\2020\Rust\vcpkg\installed\x64-windows\"
+  Pipeline.cpp
+H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  PlexityEngine.vcxproj -> H:\Projects\C++\PlexityEngine\PlexityEngine\x64\Debug\PlexityEngine.exe

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>493</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::get_cached_power</FUNCTION>
+    <DECORATED>?get_cached_power@detail@v7@fmt@@YA?AVfp@123@HAEAH@Z</DECORATED>
+    <FUNCLINE>490</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>493</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::get_cached_power</FUNCTION>
+    <DECORATED>?get_cached_power@detail@v7@fmt@@YA?AVfp@123@HAEAH@Z</DECORATED>
+    <FUNCLINE>490</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>907</LINE>
+      <COLUMN>23</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'fmt::v7::detail::digits::result' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fixed_handler::on_start</FUNCTION>
+    <DECORATED>?on_start@fixed_handler@detail@v7@fmt@@QEAA?AW4result@digits@234@_K00AEAH@Z</DECORATED>
+    <FUNCLINE>898</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\</FILEPATH>
+      <FILENAME>common-inl.h</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>29</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'spdlog::level::level_enum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>spdlog::level::to_string_view</FUNCTION>
+    <DECORATED>?to_string_view@level@spdlog@@YAAEAV?$basic_string_view@D@v7@fmt@@W4level_enum@12@@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\details\</FILEPATH>
+      <FILENAME>os-inl.h</FILENAME>
+      <LINE>210</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'f' could be '0':  this does not adhere to the specification for the function '_fileno'. </DESCRIPTION>
+    <FUNCTION>spdlog::details::os::filesize</FUNCTION>
+    <DECORATED>?filesize@os@details@spdlog@@YA_KPEAU_iobuf@@@Z</DECORATED>
+    <FUNCLINE>203</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\details\</FILEPATH>
+        <FILENAME>os-inl.h</FILENAME>
+        <LINE>205</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'f' may be NULL (Enter this branch)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\details\</FILEPATH>
+        <FILENAME>os-inl.h</FILENAME>
+        <LINE>207</LINE>
+        <COLUMN>24</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\details\</FILEPATH>
+        <FILENAME>os-inl.h</FILENAME>
+        <LINE>207</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\details\</FILEPATH>
+        <FILENAME>os-inl.h</FILENAME>
+        <LINE>210</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'f' is an Input to '_fileno' (declared at c:\program files (x86)\windows kits\10\include\10.0.19041.0\ucrt\stdio.h:205)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\details\</FILEPATH>
+        <FILENAME>os-inl.h</FILENAME>
+        <LINE>210</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'f' should not be NULL, because this is not consistent with the SAL annotation on '_fileno'</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>core.h</FILENAME>
+      <LINE>1667</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'fmt::v7::basic_format_args&lt;fmt::v7::basic_format_context&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char&gt; &gt;::&lt;unnamed-tag&gt;::args_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>fmt::v7::basic_format_args&lt;fmt::v7::basic_format_context&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char&gt; &gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$basic_format_args@V?$basic_format_context@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@D@v7@fmt@@@v7@fmt@@QEAA@XZ</DECORATED>
+    <FUNCLINE>1667</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>fmt::v7::basic_format_args&lt;fmt::v7::basic_format_context&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char&gt; &gt;::&lt;unnamed-tag&gt;::args_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>core.h</FILENAME>
+      <LINE>1667</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'fmt::v7::basic_format_args&lt;fmt::v7::basic_format_context&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char&gt; &gt;::&lt;unnamed-tag&gt;::values_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>fmt::v7::basic_format_args&lt;fmt::v7::basic_format_context&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char&gt; &gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$basic_format_args@V?$basic_format_context@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@D@v7@fmt@@@v7@fmt@@QEAA@XZ</DECORATED>
+    <FUNCLINE>1667</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>fmt::v7::basic_format_args&lt;fmt::v7::basic_format_context&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char&gt; &gt;::&lt;unnamed-tag&gt;::values_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>1060</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'fmt::v7::align::type' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>fmt::v7::basic_format_specs&lt;char&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$basic_format_specs@D@v7@fmt@@QEAA@XZ</DECORATED>
+    <FUNCLINE>1056</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>1061</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26812</DEFECTCODE>
+    <DESCRIPTION>The enum type 'fmt::v7::sign::type' is unscoped. Prefer 'enum class' over 'enum' (Enum.3).</DESCRIPTION>
+    <FUNCTION>fmt::v7::basic_format_specs&lt;char&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$basic_format_specs@D@v7@fmt@@QEAA@XZ</DECORATED>
+    <FUNCLINE>1056</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>441</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fp::assign_float_with_boundaries</FUNCTION>
+    <DECORATED>??$assign_float_with_boundaries@N@fp@detail@v7@fmt@@QEAA?AUboundaries@123@N@Z</DECORATED>
+    <FUNCLINE>435</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>445</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fp::assign_float_with_boundaries</FUNCTION>
+    <DECORATED>??$assign_float_with_boundaries@N@fp@detail@v7@fmt@@QEAA?AUboundaries@123@N@Z</DECORATED>
+    <FUNCLINE>435</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>431</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fp::assign_with_boundaries</FUNCTION>
+    <DECORATED>??$assign_with_boundaries@N@fp@detail@v7@fmt@@QEAA?AUboundaries@123@N@Z</DECORATED>
+    <FUNCLINE>425</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>441</LINE>
+      <COLUMN>52</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fp::assign_float_with_boundaries</FUNCTION>
+    <DECORATED>??$assign_float_with_boundaries@O@fp@detail@v7@fmt@@QEAA?AUboundaries@123@O@Z</DECORATED>
+    <FUNCLINE>435</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>445</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fp::assign_float_with_boundaries</FUNCTION>
+    <DECORATED>??$assign_float_with_boundaries@O@fp@detail@v7@fmt@@QEAA?AUboundaries@123@O@Z</DECORATED>
+    <FUNCLINE>435</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format-inl.h</FILENAME>
+      <LINE>431</LINE>
+      <COLUMN>24</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::fp::assign_with_boundaries</FUNCTION>
+    <DECORATED>??$assign_with_boundaries@O@fp@detail@v7@fmt@@QEAA?AUboundaries@123@O@Z</DECORATED>
+    <FUNCLINE>425</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>1496</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned int&gt;::prefix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned int&gt;::{ctor}</FUNCTION>
+    <DECORATED>??$?0H@?$int_writer@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@DI@detail@v7@fmt@@QEAA@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@Vlocale_ref@123@HAEBU?$basic_format_specs@D@23@@Z</DECORATED>
+    <FUNCLINE>1496</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned int&gt;::prefix</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>1496</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned int&gt;::prefix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned int&gt;::{ctor}</FUNCTION>
+    <DECORATED>??$?0I@?$int_writer@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@DI@detail@v7@fmt@@QEAA@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@Vlocale_ref@123@IAEBU?$basic_format_specs@D@23@@Z</DECORATED>
+    <FUNCLINE>1496</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned int&gt;::prefix</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>1496</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned __int64&gt;::prefix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned __int64&gt;::{ctor}</FUNCTION>
+    <DECORATED>??$?0_J@?$int_writer@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@D_K@detail@v7@fmt@@QEAA@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@Vlocale_ref@123@_JAEBU?$basic_format_specs@D@23@@Z</DECORATED>
+    <FUNCLINE>1496</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned __int64&gt;::prefix</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors\spdlog\fmt\bundled\</FILEPATH>
+      <FILENAME>format.h</FILENAME>
+      <LINE>1496</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned __int64&gt;::prefix' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned __int64&gt;::{ctor}</FUNCTION>
+    <DECORATED>??$?0_K@?$int_writer@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@D_K@detail@v7@fmt@@QEAA@V?$back_insert_iterator@V?$buffer@D@detail@v7@fmt@@@std@@Vlocale_ref@123@_KAEBU?$basic_format_specs@D@23@@Z</DECORATED>
+    <FUNCLINE>1496</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>fmt::v7::detail::int_writer&lt;std::back_insert_iterator&lt;fmt::v7::detail::buffer&lt;char&gt; &gt;,char,unsigned __int64&gt;::prefix</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

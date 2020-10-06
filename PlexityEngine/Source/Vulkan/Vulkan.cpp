@@ -8,29 +8,6 @@
 
 void Plexity::VulkanApplication::run()
 {
-	initVulkan();
-
-	mainLoop();
-	cleanup();
-}
-
-void Plexity::VulkanApplication::mainLoop()
-{
-	PX_TRACE("Starting main loop.");
-
-	// Main application loop, as long as the window should stay open
-	while (!glfwWindowShouldClose(window)) {
-		// Poll glfw for events, keep the window alive
-		glfwPollEvents();
-	}
-}
-
-void Plexity::VulkanApplication::initVulkan()
-{
-	Timer initTimer = Timer::startTimer("Vulkan initialization");
-	
-	PX_INFO("Initializing vulkan application.");
-
 	// Initialize GLFW, used for creating windows
 	glfwInit();
 
@@ -41,14 +18,58 @@ void Plexity::VulkanApplication::initVulkan()
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 	// Create the window
-	window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr);
+	window = std::make_optional(glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", nullptr, nullptr));
+
+	std::thread initVulkanThread(&VulkanApplication::initVulkan, this);
+
+	mainLoop();
+
+	initVulkanThread.join();
+
+	cleanup();
+}
+
+void Plexity::VulkanApplication::mainLoop()
+{
+	PX_TRACE("Starting main loop");
+	
+	bool vsync = true;
+	int maxFrametimeMS = 6.9 * 10;
+	auto maxFrametime = std::chrono::nanoseconds(69 * 100000);
+	
+	// Main application loop, as long as the window should stay open
+	while (!glfwWindowShouldClose(window.value())) {
+		auto startTime = std::chrono::high_resolution_clock::now();
+		
+		// Poll glfw for events, keep the window alive
+		glfwPollEvents();
+
+		auto endTime = std::chrono::high_resolution_clock::now();
+
+		// Sleep for the required time, for VSync
+		if (vsync) {
+			auto frameTime = endTime - startTime;
+			if (frameTime > maxFrametime)
+				continue;
+
+			auto difference = maxFrametime - frameTime;
+			std::this_thread::sleep_for(difference);
+		}
+	}
+}
+
+void Plexity::VulkanApplication::initVulkan()
+{
+	Timer initTimer = Timer::startTimer("Vulkan initialization");
+	
+	PX_INFO("Initializing vulkan application.");
 
 	// Create a vulkan instance and initialize the debugger
 	instance.createInstance();
 	debugger.createVulkanDebugger(&instance);
 
 	// Create a window vulkan surface
-	surface = Surface::createSurface(instance, window);
+	surface = Surface::createSurface(instance, window.value());
 	PX_TRACE("Created window surface.");
 	
 	// Choose a valid physical device
@@ -67,40 +88,34 @@ void Plexity::VulkanApplication::initVulkan()
 	imageViews = ImageViews::createImageViews(&swapChain);
 	PX_TRACE("Created image views based on swapchain images.");
 
+	// Initialize a renderpass
 	renderPass = RenderPass::createRenderPass(&logicalDevice, &swapChain);
 	PX_TRACE("Created a render pass, initializing the graphics pipeline.");
 	
+	// Create the graphics pipeline
 	pipeline = Pipeline::createGraphicsPipeline(&logicalDevice, &swapChain, &renderPass);
 	PX_INFO("Created the graphics pipeline.");
+
+	framebuffers = Framebuffers::createFramebuffers(&imageViews, &renderPass, &swapChain, &logicalDevice);
 
 	initTimer.stopTimer(true);
 }
 
 void Plexity::VulkanApplication::cleanup() {
 	Timer deinitTimer = Timer::startTimer("Vulkan cleanup");
-	PX_INFO("Cleaning up, time to wip the floor.");
+	PX_INFO("Shutting down application.");
 
-	// Drop the vulkan debugger
-	debugger.destroyVulkanDebugger(&instance);
-
-	pipeline.destroyGraphicsPipeline();
-	
-	renderPass.destroyRenderPass();
-	
-	imageViews.destroyImageViews();
-	
-	swapChain.destroySwapChain();
-	
-	surface.destroySurface();
-
-	logicalDevice.destroyLogicalDevice();
-	
-	// Destroy the vulkan instance
-	instance.cleanup();
-
-	// Drop glfw window
-	glfwDestroyWindow(window);
+	glfwDestroyWindow(window.value());
 	glfwTerminate();
+
+	debugger.destroyVulkanDebugger(&instance);
+	pipeline.destroyGraphicsPipeline();
+	renderPass.destroyRenderPass();
+	imageViews.destroyImageViews();
+	swapChain.destroySwapChain();
+	surface.destroySurface();
+	logicalDevice.destroyLogicalDevice();
+	instance.cleanup();
 
 	deinitTimer.stopTimer(true);
 }

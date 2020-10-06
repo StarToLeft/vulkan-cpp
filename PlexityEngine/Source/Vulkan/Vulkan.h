@@ -11,6 +11,7 @@
 #include "Renderer/RenderPass.h"
 #include "Swapchain/Swapchain.h"
 #include "Pipeline/Pipeline.h"
+#include "Framebuffers/Framebuffers.h"
 
 namespace Plexity
 {
@@ -30,7 +31,7 @@ namespace Plexity
 		void cleanup();
 
 	protected:
-		GLFWwindow* window = nullptr;
+		std::optional<GLFWwindow*> window;
 
 		Instance instance = {};
 		VulkanDebugLayer debugger = {};
@@ -46,5 +47,7 @@ namespace Plexity
 		
 		RenderPass renderPass;
 		Pipeline pipeline;
+
+		Framebuffers framebuffers;
 	};
 }

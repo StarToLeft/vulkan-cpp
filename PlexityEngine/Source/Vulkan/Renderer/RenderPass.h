@@ -12,7 +12,7 @@ namespace Plexity
 	public:
 		void destroyRenderPass();
 
-		VkRenderPass getRenderPass() { return this->renderPass; }
+		VkRenderPass* getRenderPass() { return &renderPass; }
 		
 	protected:
 		VkRenderPass renderPass;

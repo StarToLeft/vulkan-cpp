@@ -44,8 +44,13 @@ void Plexity::PhysicalDevice::pickPhysicalDevice(Instance* instance, Surface* su
 	// Ordered map of physical devices based on their score
 	std::multimap<uint32_t, std::tuple<VkPhysicalDevice, std::string>> deviceScores{};
 	
+	PX_TRACE("Listing available devices:");
 	for (const auto& device : devices)
 	{
+		VkPhysicalDeviceProperties deviceProperties;
+		vkGetPhysicalDeviceProperties(device, &deviceProperties);
+		PX_TRACE("\t{} {}", deviceProperties.deviceName, deviceProperties.apiVersion);
+
 		// Check if the physical device supports a graphical queue
 		QueueFamilyIndices indices = QueueFamilyIndices::findQueueFamilies(device, surface);
 		const bool extensionsSupported = CheckDeviceExtensionSupport(device);

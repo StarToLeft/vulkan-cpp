@@ -5,7 +5,7 @@
 Plexity::RenderPass Plexity::RenderPass::createRenderPass(LogicalDevice* logicalDevice, SwapChain* swapChain)
 {
     VkAttachmentDescription colorAttachment{};
-    colorAttachment.format = swapChain->getSwapChainImageFormat();
+    colorAttachment.format = *swapChain->getSwapChainImageFormat();
     colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     colorAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     colorAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -32,7 +32,7 @@ Plexity::RenderPass Plexity::RenderPass::createRenderPass(LogicalDevice* logical
 
     RenderPass renderPass;
     renderPass.logicalDevice = logicalDevice;
-    if (vkCreateRenderPass(logicalDevice->getDevice(), &renderPassInfo, nullptr, &renderPass.renderPass) != VK_SUCCESS) {
+    if (vkCreateRenderPass(*logicalDevice->getDevice(), &renderPassInfo, nullptr, &renderPass.renderPass) != VK_SUCCESS) {
         throw std::runtime_error("failed to create render pass!");
     }
 
@@ -41,5 +41,5 @@ Plexity::RenderPass Plexity::RenderPass::createRenderPass(LogicalDevice* logical
 
 void Plexity::RenderPass::destroyRenderPass()
 {
-    vkDestroyRenderPass(logicalDevice->getDevice(), renderPass, nullptr);
+    vkDestroyRenderPass(*logicalDevice->getDevice(), renderPass, nullptr);
 }

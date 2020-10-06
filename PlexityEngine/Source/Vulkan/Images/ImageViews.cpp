@@ -16,7 +16,7 @@ Plexity::ImageViews Plexity::ImageViews::createImageViews(SwapChain* swapChain)
 
 		// Assign a view mode, in this case 2D
 		createInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
-		createInfo.format = imageViews.swapChain->getSwapChainImageFormat();
+		createInfo.format = *imageViews.swapChain->getSwapChainImageFormat();
 
 		// Assign how RGBa (colors) should be handled
 		createInfo.components.r = VK_COMPONENT_SWIZZLE_IDENTITY;
@@ -32,7 +32,7 @@ Plexity::ImageViews Plexity::ImageViews::createImageViews(SwapChain* swapChain)
 		createInfo.subresourceRange.layerCount = 1;
 
 		// Create image view
-		if (vkCreateImageView(imageViews.swapChain->getLogicalDevice()->getDevice(), &createInfo, nullptr, &imageViews.swapChainImageViews[i]) != VK_SUCCESS) {
+		if (vkCreateImageView(*imageViews.swapChain->getLogicalDevice()->getDevice(), &createInfo, nullptr, &imageViews.swapChainImageViews[i]) != VK_SUCCESS) {
 			throw std::runtime_error("failed to create image views!");
 		}
 	}
@@ -45,6 +45,6 @@ void Plexity::ImageViews::destroyImageViews()
 	// Destroy all image views
 	for (auto imageView : swapChainImageViews)
 	{
-		vkDestroyImageView(swapChain->getLogicalDevice()->getDevice(), imageView, nullptr);
+		vkDestroyImageView(*swapChain->getLogicalDevice()->getDevice(), imageView, nullptr);
 	}
 }

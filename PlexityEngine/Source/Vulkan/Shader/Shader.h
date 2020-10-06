@@ -20,7 +20,8 @@ namespace Plexity
 		VkShaderModule getVertShaderModule() { return this->vertShaderModule; }
 		VkShaderModule getFragShaderModule() { return this->fragShaderModule; }
 
-		VkPipelineShaderStageCreateInfo* getShaderStages() { return this->shaderStages; }
+		VkPipelineShaderStageCreateInfo getVertShaderStageInfo() { return this->vertShaderStageInfo; }
+		VkPipelineShaderStageCreateInfo getFragShaderStageInfo() { return this->fragShaderStageInfo; }
 
 	protected:
 		std::vector<char> vertexShaderData;
@@ -29,7 +30,8 @@ namespace Plexity
 		VkShaderModule vertShaderModule;
 		VkShaderModule fragShaderModule;
 		
-		VkPipelineShaderStageCreateInfo* shaderStages;
+		VkPipelineShaderStageCreateInfo vertShaderStageInfo;
+		VkPipelineShaderStageCreateInfo fragShaderStageInfo;
 		
 		LogicalDevice* logicalDevice;
 	};

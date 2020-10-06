@@ -22,14 +22,14 @@ Plexity::Pipeline Plexity::Pipeline::createGraphicsPipeline(LogicalDevice* logic
     VkViewport viewport{};
     viewport.x = 0.0f;
     viewport.y = 0.0f;
-    viewport.width = (float)swapChain->getExtent2D().width;
-    viewport.height = (float)swapChain->getExtent2D().height;
+    viewport.width = (float)swapChain->getExtent2D()->width;
+    viewport.height = (float)swapChain->getExtent2D()->height;
     viewport.minDepth = 0.0f;
     viewport.maxDepth = 1.0f;
 
     VkRect2D scissor{};
     scissor.offset = { 0, 0 };
-    scissor.extent = swapChain->getExtent2D();
+    scissor.extent = *swapChain->getExtent2D();
 
     VkPipelineViewportStateCreateInfo viewportState{};
     viewportState.sType = VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO;
@@ -74,16 +74,18 @@ Plexity::Pipeline Plexity::Pipeline::createGraphicsPipeline(LogicalDevice* logic
     pipelineLayoutInfo.pushConstantRangeCount = 0;
 
 	VkPipelineLayout vkPipelineLayout;
-	if (vkCreatePipelineLayout(pipeline.logicalDevice->getDevice(), &pipelineLayoutInfo, nullptr, &vkPipelineLayout) != VK_SUCCESS) {
-		throw std::runtime_error("failed to create graphics pipeline!");
+	if (vkCreatePipelineLayout(*pipeline.logicalDevice->getDevice(), &pipelineLayoutInfo, nullptr, &vkPipelineLayout) != VK_SUCCESS) {
+		throw std::runtime_error("Failed to create a graphics pipeline layout");
 	}
 
 	pipeline.pipelineLayout = vkPipelineLayout;
 
+    VkPipelineShaderStageCreateInfo shaderStages[] = { shader.getFragShaderStageInfo(), shader.getVertShaderStageInfo() };
+
     VkGraphicsPipelineCreateInfo pipelineInfo{};
     pipelineInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
     pipelineInfo.stageCount = 2;
-    pipelineInfo.pStages = shader.getShaderStages();
+    pipelineInfo.pStages = shaderStages;
     pipelineInfo.pVertexInputState = &vertexInputInfo;
     pipelineInfo.pInputAssemblyState = &inputAssembly;
     pipelineInfo.pViewportState = &viewportState;
@@ -93,17 +95,14 @@ Plexity::Pipeline Plexity::Pipeline::createGraphicsPipeline(LogicalDevice* logic
     pipelineInfo.pColorBlendState = &colorBlending;
     pipelineInfo.pDynamicState = nullptr; // Optional
     pipelineInfo.layout = pipeline.pipelineLayout;
-    pipelineInfo.renderPass = renderPass->getRenderPass();
+    pipelineInfo.renderPass = *renderPass->getRenderPass();
     pipelineInfo.subpass = 0;
     pipelineInfo.basePipelineHandle = nullptr; // Optional
     pipelineInfo.basePipelineIndex = -1; // Optional
 
-    VkPipeline vkPipeline;
-    if (vkCreateGraphicsPipelines(pipeline.logicalDevice->getDevice(), nullptr, 1, &pipelineInfo, nullptr, &vkPipeline) != VK_SUCCESS) {
-        throw std::runtime_error("failed to create graphics pipeline!");
+    if (vkCreateGraphicsPipelines(*pipeline.logicalDevice->getDevice(), nullptr, 1, &pipelineInfo, nullptr, &pipeline.pipeline) != VK_SUCCESS) {
+        throw std::runtime_error("Failed to initialize a vulkan graphics pipeline.");
     }
-
-    pipeline.pipeline = vkPipeline;
 
     shader.destroyShaderModules();
 	
@@ -112,6 +111,6 @@ Plexity::Pipeline Plexity::Pipeline::createGraphicsPipeline(LogicalDevice* logic
 
 void Plexity::Pipeline::destroyGraphicsPipeline()
 {
-	vkDestroyPipeline(logicalDevice->getDevice(), pipeline, nullptr);
-	vkDestroyPipelineLayout(logicalDevice->getDevice(), pipelineLayout, nullptr);
+	vkDestroyPipeline(*logicalDevice->getDevice(), pipeline, nullptr);
+	vkDestroyPipelineLayout(*logicalDevice->getDevice(), pipelineLayout, nullptr);
 }

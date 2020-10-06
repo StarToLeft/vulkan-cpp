@@ -30,7 +30,7 @@ VkShaderModule Plexity::Shader::createShaderModule(LogicalDevice* logicalDevice,
     createInfo.pCode = reinterpret_cast<const uint32_t*>(code.data());
 
     VkShaderModule shaderModule;
-    if (vkCreateShaderModule(logicalDevice->getDevice(), &createInfo, nullptr, &shaderModule) != VK_SUCCESS) {
+    if (vkCreateShaderModule(*logicalDevice->getDevice(), &createInfo, nullptr, &shaderModule) != VK_SUCCESS) {
         throw std::runtime_error("Failed to create shader module");
     }
 
@@ -59,15 +59,15 @@ Plexity::Shader Plexity::Shader::createShader(LogicalDevice* logicalDevice, cons
     fragShaderStageInfo.stage = VK_SHADER_STAGE_FRAGMENT_BIT;
     fragShaderStageInfo.module = shader.fragShaderModule;
     fragShaderStageInfo.pName = "main";
-
-    VkPipelineShaderStageCreateInfo shaderStages[] = { vertShaderStageInfo, fragShaderStageInfo };
-    shader.shaderStages = shaderStages;
 	
+    shader.vertShaderStageInfo = vertShaderStageInfo;
+    shader.fragShaderStageInfo = fragShaderStageInfo;
+
     return shader;
 }
 
 void Plexity::Shader::destroyShaderModules() const
 {
-    vkDestroyShaderModule(logicalDevice->getDevice(), fragShaderModule, nullptr);
-    vkDestroyShaderModule(logicalDevice->getDevice(), vertShaderModule, nullptr);
+    vkDestroyShaderModule(*logicalDevice->getDevice(), fragShaderModule, nullptr);
+    vkDestroyShaderModule(*logicalDevice->getDevice(), vertShaderModule, nullptr);
 }

@@ -1,3 +1,6 @@
+# Visual Studio
+*.sln
+
 # Prerequisites
 *.d
 
@@ -30,3 +33,8 @@
 *.exe
 *.out
 *.app
+
+/x64/**
+/.vs/**
+/PlexityEngine/x64/**
+/PlexityEngine/Source/Vendors/**

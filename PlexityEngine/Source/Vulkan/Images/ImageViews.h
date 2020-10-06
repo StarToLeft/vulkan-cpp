@@ -13,6 +13,9 @@ namespace Plexity
 		static ImageViews createImageViews(SwapChain* swapChain);
 
 	public:
+		std::vector<VkImage>* getSwapChainImages() { return &swapChainImages; }
+		std::vector<VkImageView>* getSwapChainImageViews() { return &swapChainImageViews; }
+
 		void destroyImageViews();
 		
 	protected:

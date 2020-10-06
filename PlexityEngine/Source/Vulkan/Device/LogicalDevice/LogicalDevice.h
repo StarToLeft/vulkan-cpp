@@ -13,8 +13,8 @@ namespace Plexity
 		static LogicalDevice createLogicalDevice(VkPhysicalDevice physicalDevice, Surface* surface);
 		void destroyLogicalDevice();
 
-		VkDevice getDevice() { return this->device; }
-		Queue getPresentQueue() { return this->presentQueue; }
+		VkDevice* getDevice() { return &device; }
+		Queue* getPresentQueue() { return &presentQueue; }
 		
 	protected:
 		VkDevice device;

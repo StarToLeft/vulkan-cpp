@@ -31,11 +31,11 @@ namespace Plexity
 
 		std::vector<VkImage> getSwapChainImages();
 		
-		VkSwapchainKHR getSwapChain() { return this->swapChain; }
-		VkFormat getSwapChainImageFormat() { return this->swapChainImageFormat; }
-		VkExtent2D getExtent2D() { return this->swapChainExtent; }
+		VkSwapchainKHR* getSwapChain() { return &swapChain; }
+		VkFormat* getSwapChainImageFormat() { return &swapChainImageFormat; }
+		VkExtent2D* getExtent2D() { return &swapChainExtent; }
 		
-		LogicalDevice* getLogicalDevice() { return this->logicalDevice; }
+		LogicalDevice* getLogicalDevice() { return logicalDevice; }
 
 	protected:
 		VkSwapchainKHR swapChain;

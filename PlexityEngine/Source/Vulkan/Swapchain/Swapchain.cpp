@@ -140,7 +140,7 @@ Plexity::SwapChain Plexity::SwapChain::createSwapChain(PhysicalDevice* physicalD
 	// Create the swapchain
 	SwapChain swapChain = {};
 	swapChain.logicalDevice = logicalDevice;
-	if (vkCreateSwapchainKHR(logicalDevice->getDevice(), &createInfo, nullptr, &swapChain.swapChain) != VK_SUCCESS) {
+	if (vkCreateSwapchainKHR(*logicalDevice->getDevice(), &createInfo, nullptr, &swapChain.swapChain) != VK_SUCCESS) {
 		throw std::runtime_error("An error occured while creating the swapchain.");
 	}
 
@@ -157,7 +157,7 @@ Plexity::SwapChain Plexity::SwapChain::createSwapChain(PhysicalDevice* physicalD
 void Plexity::SwapChain::destroySwapChain()
 {
 	// Destroy the swapchain
-	vkDestroySwapchainKHR(logicalDevice->getDevice(), swapChain, nullptr);
+	vkDestroySwapchainKHR(*logicalDevice->getDevice(), swapChain, nullptr);
 }
 
 std::vector<VkImage> Plexity::SwapChain::getSwapChainImages()
@@ -165,9 +165,9 @@ std::vector<VkImage> Plexity::SwapChain::getSwapChainImages()
 	std::vector<VkImage> swapChainImages;
 	
 	// Get the swapchain images
-	vkGetSwapchainImagesKHR(logicalDevice->getDevice(), getSwapChain(), &imageCount, nullptr);
+	vkGetSwapchainImagesKHR(*logicalDevice->getDevice(), *getSwapChain(), &imageCount, nullptr);
 	swapChainImages.resize(imageCount);
-	vkGetSwapchainImagesKHR(logicalDevice->getDevice(), getSwapChain(), &imageCount, swapChainImages.data());
+	vkGetSwapchainImagesKHR(*logicalDevice->getDevice(), *getSwapChain(), &imageCount, swapChainImages.data());
 
 	return swapChainImages;
 }

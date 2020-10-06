@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{4cf5de53-f7ca-4361-9a11-f81de1206b66}</ProjectGuid>
+    <RootNamespace>PlexityEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.148.1\Include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <EnableModules>true</EnableModules>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.148.1\Include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <EnableModules>true</EnableModules>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Vulkan\Framebuffers\Framebuffers.cpp" />
+    <ClCompile Include="Source\Vulkan\Renderer\RenderPass.cpp" />
+    <ClCompile Include="Source\Vulkan\Shader\Shader.cpp" />
+    <ClCompile Include="Source\Vulkan\Pipeline\Pipeline.cpp" />
+    <ClCompile Include="Source\Vulkan\Images\ImageViews.cpp" />
+    <ClCompile Include="Source\Vulkan\Queues\Queue.cpp" />
+    <ClCompile Include="Source\Vulkan\Device\LogicalDevice\LogicalDevice.cpp" />
+    <ClCompile Include="Source\Vulkan\Device\PhysicalDevice\PhysicalDevice.cpp" />
+    <ClCompile Include="Source\Logging\Log.cpp" />
+    <ClCompile Include="Source\Core.cpp" />
+    <ClCompile Include="Source\Vulkan\Instance\Instance.cpp" />
+    <ClCompile Include="Source\Vulkan\Queues\QueueFamilies.cpp" />
+    <ClCompile Include="Source\Vulkan\Validation\Debug\Debug.cpp" />
+    <ClCompile Include="Source\Vulkan\Validation\Validation.cpp" />
+    <ClCompile Include="Source\Vulkan\Vulkan.cpp" />
+    <ClCompile Include="Source\Vulkan\Surface\Surface.cpp" />
+    <ClCompile Include="Source\Vulkan\Swapchain\Swapchain.cpp" />
+    <ClCompile Include="Source\Debug\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Vulkan\Framebuffers\Framebuffers.h" />
+    <ClInclude Include="Source\Vulkan\Renderer\RenderPass.h" />
+    <ClInclude Include="Source\Vulkan\Shader\Shader.h" />
+    <ClInclude Include="Source\Vulkan\Pipeline\Pipeline.h" />
+    <ClInclude Include="Source\Vulkan\Images\ImageViews.h" />
+    <ClInclude Include="Source\Vulkan\Queues\Queue.h" />
+    <ClInclude Include="Source\Vulkan\Device\LogicalDevice\LogicalDevice.h" />
+    <ClInclude Include="Source\Vulkan\Device\PhysicalDevice\PhysicalDevice.h" />
+    <ClInclude Include="Source\Imports.h" />
+    <ClInclude Include="Source\Logging\Log.h" />
+    <ClInclude Include="Source\Vendors\spdlog\async.h" />
+    <ClInclude Include="Source\Vendors\spdlog\async_logger-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\async_logger.h" />
+    <ClInclude Include="Source\Vendors\spdlog\cfg\argv.h" />
+    <ClInclude Include="Source\Vendors\spdlog\cfg\env.h" />
+    <ClInclude Include="Source\Vendors\spdlog\cfg\helpers-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\cfg\helpers.h" />
+    <ClInclude Include="Source\Vendors\spdlog\common-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\common.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\backtracer-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\backtracer.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\circular_q.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\console_globals.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\file_helper-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\file_helper.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\fmt_helper.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\log_msg-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\log_msg.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\log_msg_buffer-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\log_msg_buffer.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\mpmc_blocking_q.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\null_mutex.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\os-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\os.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\periodic_worker-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\periodic_worker.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\registry-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\registry.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\synchronous_factory.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\tcp_client-windows.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\tcp_client.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\thread_pool-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\thread_pool.h" />
+    <ClInclude Include="Source\Vendors\spdlog\details\windows_include.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bin_to_hex.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\chrono.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\color.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\compile.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\core.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\format-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\format.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\locale.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\os.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\ostream.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\posix.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\printf.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\bundled\ranges.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\chrono.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\fmt.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fmt\ostr.h" />
+    <ClInclude Include="Source\Vendors\spdlog\formatter.h" />
+    <ClInclude Include="Source\Vendors\spdlog\fwd.h" />
+    <ClInclude Include="Source\Vendors\spdlog\logger-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\logger.h" />
+    <ClInclude Include="Source\Vendors\spdlog\pattern_formatter-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\pattern_formatter.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\android_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\ansicolor_sink-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\ansicolor_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\base_sink-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\base_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\basic_file_sink-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\basic_file_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\daily_file_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\dist_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\dup_filter_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\msvc_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\null_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\ostream_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\ringbuffer_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\rotating_file_sink-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\rotating_file_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\sink-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\stdout_color_sinks-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\stdout_color_sinks.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\stdout_sinks-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\stdout_sinks.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\syslog_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\systemd_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\tcp_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\wincolor_sink-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\wincolor_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\sinks\win_eventlog_sink.h" />
+    <ClInclude Include="Source\Vendors\spdlog\spdlog-inl.h" />
+    <ClInclude Include="Source\Vendors\spdlog\spdlog.h" />
+    <ClInclude Include="Source\Vendors\spdlog\stopwatch.h" />
+    <ClInclude Include="Source\Vendors\spdlog\tweakme.h" />
+    <ClInclude Include="Source\Vendors\spdlog\version.h" />
+    <ClInclude Include="Source\Vulkan\Instance\Instance.h" />
+    <ClInclude Include="Source\Vulkan\Queues\QueueFamilies.h" />
+    <ClInclude Include="Source\Vulkan\Validation\Debug\Debug.h" />
+    <ClInclude Include="Source\Vulkan\Validation\Validation.h" />
+    <ClInclude Include="Source\Vulkan\Vulkan.h" />
+    <ClInclude Include="Source\Vulkan\Surface\Surface.h" />
+    <ClInclude Include="Source\Vulkan\Swapchain\Swapchain.h" />
+    <ClInclude Include="Source\Debug\Timer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\triangle.frag" />
+    <None Include="Assets\Shaders\triangle.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

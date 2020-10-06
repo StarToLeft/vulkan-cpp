@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.148.1\Include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>H:\Projects\C++\Binaries\glfw-3.3.2\include;H:\Projects\C++\Binaries\glm\glm;C:\VulkanSDK\1.2.141.2\Include;H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <EnableModules>true</EnableModules>
@@ -125,7 +125,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>H:\Projects\C++\Binaries\glfw-3.3.2\lib-vc2019;C:\VulkanSDK\1.2.141.2\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.148.1\Include;C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>H:\Projects\C++\Binaries\glfw-3.3.2\include;H:\Projects\C++\Binaries\glm\glm;C:\VulkanSDK\1.2.141.2\Include;H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <EnableModules>true</EnableModules>
@@ -147,10 +147,12 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan-cpp\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>H:\Projects\C++\Binaries\glfw-3.3.2\lib-vc2019;C:\VulkanSDK\1.2.141.2\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Vulkan\CommandBuffers\CommandBuffers.cpp" />
+    <ClCompile Include="Source\Vulkan\CommandPool\CommandPool.cpp" />
     <ClCompile Include="Source\Vulkan\Framebuffers\Framebuffers.cpp" />
     <ClCompile Include="Source\Vulkan\Renderer\RenderPass.cpp" />
     <ClCompile Include="Source\Vulkan\Shader\Shader.cpp" />
@@ -171,6 +173,8 @@
     <ClCompile Include="Source\Debug\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Vulkan\CommandBuffers\CommandBuffers.h" />
+    <ClInclude Include="Source\Vulkan\CommandPool\CommandPool.h" />
     <ClInclude Include="Source\Vulkan\Framebuffers\Framebuffers.h" />
     <ClInclude Include="Source\Vulkan\Renderer\RenderPass.h" />
     <ClInclude Include="Source\Vulkan\Shader\Shader.h" />

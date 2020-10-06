@@ -21,5 +21,6 @@ namespace Plexity {
 
 	protected:
 		std::vector<VkFramebuffer> swapChainFramebuffers;
+		LogicalDevice* device;
 	};
 }

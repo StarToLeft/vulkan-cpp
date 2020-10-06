@@ -3,6 +3,8 @@
 
 #include "../Debug/Timer.h"
 #include "../Logging/Log.h"
+#include "CommandBuffers/CommandBuffers.h"
+#include "CommandPool/CommandPool.h"
 #include "Renderer/RenderPass.h"
 #include "Surface/Surface.h"
 
@@ -32,10 +34,9 @@ void Plexity::VulkanApplication::run()
 void Plexity::VulkanApplication::mainLoop()
 {
 	PX_TRACE("Starting main loop");
-	
-	bool vsync = true;
-	int maxFrametimeMS = 6.9 * 10;
-	auto maxFrametime = std::chrono::nanoseconds(69 * 100000);
+
+	const bool vsync = true;
+	const auto maxFrametime = std::chrono::nanoseconds(69 * 100000);
 	
 	// Main application loop, as long as the window should stay open
 	while (!glfwWindowShouldClose(window.value())) {
@@ -97,7 +98,14 @@ void Plexity::VulkanApplication::initVulkan()
 	PX_INFO("Created the graphics pipeline.");
 
 	framebuffers = Framebuffers::createFramebuffers(&imageViews, &renderPass, &swapChain, &logicalDevice);
+	PX_TRACE("Created frame-buffers.");
 
+	commandPool = CommandPool::createCommandPool(&logicalDevice, &physicalDevice, &surface);
+	PX_TRACE("Created command pool.");
+
+	commandBuffers = CommandBuffers::createCommandBuffers(&logicalDevice, &framebuffers, &commandPool, &renderPass, &swapChain, &pipeline);
+	PX_INFO("Initialized command buffers.");
+	
 	initTimer.stopTimer(true);
 }
 
@@ -109,6 +117,8 @@ void Plexity::VulkanApplication::cleanup() {
 	glfwTerminate();
 
 	debugger.destroyVulkanDebugger(&instance);
+	commandPool.destroyCommandPool();
+	framebuffers.destroyFramebuffers();
 	pipeline.destroyGraphicsPipeline();
 	renderPass.destroyRenderPass();
 	imageViews.destroyImageViews();

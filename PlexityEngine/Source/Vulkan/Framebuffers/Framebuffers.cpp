@@ -2,8 +2,9 @@
 
 Plexity::Framebuffers Plexity::Framebuffers::createFramebuffers(ImageViews* imageViews, RenderPass* renderPass, SwapChain* swapChain, LogicalDevice* device)
 {
-    Framebuffers framebuffer;
-    framebuffer.swapChainFramebuffers.resize(imageViews->getSwapChainImageViews()->size());
+    Framebuffers framebuffers;
+    framebuffers.swapChainFramebuffers.resize(imageViews->getSwapChainImageViews()->size());
+    framebuffers.device = device;
 
     // Create framebuffers for each image view
     for (size_t i = 0; i < imageViews->getSwapChainImageViews()->size(); i++) {
@@ -20,14 +21,18 @@ Plexity::Framebuffers Plexity::Framebuffers::createFramebuffers(ImageViews* imag
         framebufferInfo.height = swapChain->getExtent2D()->height;
         framebufferInfo.layers = 1;
 
-        if (vkCreateFramebuffer(*device->getDevice(), &framebufferInfo, nullptr, &framebuffer.swapChainFramebuffers[i]) != VK_SUCCESS) {
+        if (vkCreateFramebuffer(*device->getDevice(), &framebufferInfo, nullptr, &framebuffers.swapChainFramebuffers[i]) != VK_SUCCESS) {
             throw std::runtime_error("failed to create framebuffer!");
         }
     }
     
-    return framebuffer;
+    return framebuffers;
 }
 
 void Plexity::Framebuffers::destroyFramebuffers()
 {
+	for (VkFramebuffer frameBuffer : swapChainFramebuffers)
+	{
+        vkDestroyFramebuffer(*device->getDevice(), frameBuffer, nullptr);
+	}
 }

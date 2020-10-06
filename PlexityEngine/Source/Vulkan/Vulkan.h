@@ -1,5 +1,7 @@
 #pragma once
 #include "../Imports.h"
+#include "CommandBuffers/CommandBuffers.h"
+#include "CommandPool/CommandPool.h"
 #include "Instance/Instance.h"
 #include "Surface/Surface.h"
 #include "Validation/Debug/Debug.h"
@@ -49,5 +51,9 @@ namespace Plexity
 		Pipeline pipeline;
 
 		Framebuffers framebuffers;
+
+		CommandPool commandPool;
+		
+		CommandBuffers commandBuffers;
 	};
 }

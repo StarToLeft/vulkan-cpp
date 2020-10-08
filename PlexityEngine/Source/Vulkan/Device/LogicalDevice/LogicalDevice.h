@@ -15,11 +15,13 @@ namespace Plexity
 
 		VkDevice* getDevice() { return &device; }
 		Queue* getPresentQueue() { return &presentQueue; }
+		Queue* getGraphicsQueue() { return &presentQueue; }
 		
 	protected:
 		VkDevice device;
 
 		Queue presentQueue;
+		Queue graphicsQueue;
 	};
 }
 

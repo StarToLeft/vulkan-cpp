@@ -65,7 +65,8 @@ Plexity::LogicalDevice Plexity::LogicalDevice::createLogicalDevice(VkPhysicalDev
 	
 	LogicalDevice logicalDevice;
 	logicalDevice.device = device;
-	logicalDevice.presentQueue = Queue::createQueue(device, indices.presentFamily.value(), 0);;
+	logicalDevice.presentQueue = Queue::createQueue(device, indices.presentFamily.value(), 0);
+	logicalDevice.graphicsQueue = Queue::createQueue(device, indices.graphicsFamily.value(), 0);
 
 	return logicalDevice;
 }

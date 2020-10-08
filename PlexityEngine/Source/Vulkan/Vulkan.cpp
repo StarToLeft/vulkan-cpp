@@ -5,6 +5,7 @@
 #include "../Logging/Log.h"
 #include "CommandBuffers/CommandBuffers.h"
 #include "CommandPool/CommandPool.h"
+#include "Renderer/Renderer.h"
 #include "Renderer/RenderPass.h"
 #include "Surface/Surface.h"
 
@@ -45,6 +46,13 @@ void Plexity::VulkanApplication::mainLoop()
 		// Poll glfw for events, keep the window alive
 		glfwPollEvents();
 
+		// Render to the screen
+		if (readyToRender)
+		{
+			draw();
+			vkDeviceWaitIdle(*logicalDevice.getDevice());
+		}
+
 		auto endTime = std::chrono::high_resolution_clock::now();
 
 		// Sleep for the required time, for VSync
@@ -57,6 +65,11 @@ void Plexity::VulkanApplication::mainLoop()
 			std::this_thread::sleep_for(difference);
 		}
 	}
+}
+
+void Plexity::VulkanApplication::draw()
+{
+	renderer.draw();
 }
 
 void Plexity::VulkanApplication::initVulkan()
@@ -105,6 +118,10 @@ void Plexity::VulkanApplication::initVulkan()
 
 	commandBuffers = CommandBuffers::createCommandBuffers(&logicalDevice, &framebuffers, &commandPool, &renderPass, &swapChain, &pipeline);
 	PX_INFO("Initialized command buffers.");
+
+	renderer = Renderer::createRenderer(&logicalDevice, &swapChain, &commandBuffers, &imageViews);
+
+	readyToRender = true;
 	
 	initTimer.stopTimer(true);
 }
@@ -117,6 +134,7 @@ void Plexity::VulkanApplication::cleanup() {
 	glfwTerminate();
 
 	debugger.destroyVulkanDebugger(&instance);
+	renderer.destroyRenderer();
 	commandPool.destroyCommandPool();
 	framebuffers.destroyFramebuffers();
 	pipeline.destroyGraphicsPipeline();

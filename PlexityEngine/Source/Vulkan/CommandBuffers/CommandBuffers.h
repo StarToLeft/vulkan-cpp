@@ -12,6 +12,8 @@ namespace Plexity
 		static CommandBuffers createCommandBuffers(LogicalDevice* device, Framebuffers* frameBuffers, CommandPool* commandPool, RenderPass* renderPass, SwapChain* swapChain, Pipeline* graphicsPipeline);
 
 	public:
+		std::vector<VkCommandBuffer>* getCommandBuffers() { return &commandBuffers; }
+		
 		void destroyCommandBuffers();
 		
 	protected:

@@ -50,8 +50,6 @@ Plexity::CommandBuffers Plexity::CommandBuffers::createCommandBuffers(LogicalDev
 			throw std::runtime_error("failed to record command buffer!");
 		}
 	}
-
-	
 	
 	return commandBuffers;
 }

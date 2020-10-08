@@ -14,6 +14,7 @@
 #include "Swapchain/Swapchain.h"
 #include "Pipeline/Pipeline.h"
 #include "Framebuffers/Framebuffers.h"
+#include "Renderer/Renderer.h"
 
 namespace Plexity
 {
@@ -30,10 +31,13 @@ namespace Plexity
 
 		void mainLoop();
 
+		void draw();
+
 		void cleanup();
 
 	protected:
 		std::optional<GLFWwindow*> window;
+		bool readyToRender;
 
 		Instance instance = {};
 		VulkanDebugLayer debugger = {};
@@ -55,5 +59,7 @@ namespace Plexity
 		CommandPool commandPool;
 		
 		CommandBuffers commandBuffers;
+
+		Renderer renderer;
 	};
 }

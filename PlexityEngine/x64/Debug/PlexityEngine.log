@@ -1,17 +1,4 @@
-﻿  Using triplet "x64-windows" from "G:\2020\Rust\vcpkg\installed\x64-windows\"
-  CommandBuffers.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Framebuffers.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Core.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Instance.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Instance\Instance.cpp(69,21): warning C4018: '<': signed/unsigned mismatch
-  Vulkan.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Swapchain.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  PlexityEngine.vcxproj -> H:\Projects\C++\PlexityEngine\PlexityEngine\x64\Debug\PlexityEngine.exe
+﻿  Vulkan.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  PlexityEngine.vcxproj -> C:\Users\anton.hagser\Documents\Projects\vulkan\x64\Debug\PlexityEngine.exe

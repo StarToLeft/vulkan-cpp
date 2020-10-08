@@ -40,7 +40,7 @@ Plexity::RenderPass Plexity::RenderPass::createRenderPass(LogicalDevice* logical
     renderPassInfo.dependencyCount = 1;
     renderPassInfo.pDependencies = &dependency;
 
-    RenderPass renderPass;
+    RenderPass renderPass{};
     renderPass.logicalDevice = logicalDevice;
     if (vkCreateRenderPass(*logicalDevice->getDevice(), &renderPassInfo, nullptr, &renderPass.renderPass) != VK_SUCCESS) {
         throw std::runtime_error("failed to create render pass!");
@@ -49,7 +49,7 @@ Plexity::RenderPass Plexity::RenderPass::createRenderPass(LogicalDevice* logical
     return renderPass;
 }
 
-void Plexity::RenderPass::destroyRenderPass()
+void Plexity::RenderPass::destroyRenderPass() const
 {
     vkDestroyRenderPass(*logicalDevice->getDevice(), renderPass, nullptr);
 }

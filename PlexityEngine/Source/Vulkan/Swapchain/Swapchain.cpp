@@ -58,13 +58,19 @@ VkPresentModeKHR Plexity::SwapChain::chooseSwapPresentMode(const std::vector<VkP
 }
 
 // Resolution of images in the swap chain
-VkExtent2D Plexity::SwapChain::chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities)
+VkExtent2D Plexity::SwapChain::chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities, GLFWwindow* window)
 {
 	if (capabilities.currentExtent.width != UINT32_MAX) {
 		return capabilities.currentExtent;
 	}
 	else {
-		VkExtent2D actualExtent = { WIDTH, HEIGHT };
+		int width, height;
+		glfwGetFramebufferSize(window, &width, &height);
+		
+		VkExtent2D actualExtent = {
+			static_cast<uint32_t>(width),
+			static_cast<uint32_t>(height)
+		};
 
 		actualExtent.width = std::max<uint32_t>(capabilities.minImageExtent.width, std::min<uint32_t>(capabilities.maxImageExtent.width, actualExtent.width));
 		actualExtent.height = std::max<uint32_t>(capabilities.minImageExtent.height, std::min<uint32_t>(capabilities.maxImageExtent.height, actualExtent.height));
@@ -73,7 +79,7 @@ VkExtent2D Plexity::SwapChain::chooseSwapExtent(const VkSurfaceCapabilitiesKHR& 
 	}
 }
 
-Plexity::SwapChain Plexity::SwapChain::createSwapChain(PhysicalDevice* physicalDevice, LogicalDevice* logicalDevice, Surface* surface, std::optional<VkSwapchainKHR*> oldSwapchain)
+Plexity::SwapChain Plexity::SwapChain::createSwapChain(PhysicalDevice* physicalDevice, LogicalDevice* logicalDevice, Surface* surface, std::optional<VkSwapchainKHR*> oldSwapchain, GLFWwindow* window)
 {
 	VkPhysicalDevice vkPhysicalDevice = physicalDevice->getDevice();
 
@@ -81,7 +87,7 @@ Plexity::SwapChain Plexity::SwapChain::createSwapChain(PhysicalDevice* physicalD
 	SwapChainSupportDetails swapChainSupport = SwapChainSupportDetails::querySwapChainSupport(&vkPhysicalDevice, surface);
 	VkSurfaceFormatKHR surfaceFormat = chooseSwapSurfaceFormat(swapChainSupport.formats);
 	VkPresentModeKHR presentMode = chooseSwapPresentMode(swapChainSupport.presentModes);
-	VkExtent2D extent = chooseSwapExtent(swapChainSupport.capabilities);
+	VkExtent2D extent = chooseSwapExtent(swapChainSupport.capabilities, window);
 
 	// Assign the amount of images to have in swapchain, we will limit it to the (minimum amount + 1) defined by the physical device
 	uint32_t imageCount = swapChainSupport.capabilities.minImageCount + 1;

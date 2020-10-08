@@ -9,8 +9,6 @@ Plexity::Renderer Plexity::Renderer::createRenderer(LogicalDevice* device, SwapC
     renderer.commandBuffers = commandBuffers;
     renderer.imageViews = imageViews;
 	renderer.createSyncObjects();
-    
-
 
     return renderer;
 }
@@ -47,13 +45,21 @@ void Plexity::Renderer::destroyRenderer()
     }
 }
 
-void Plexity::Renderer::draw()
+bool Plexity::Renderer::draw()
 {
     vkWaitForFences(*device->getDevice(), 1, &inFlightFences[currentFrame], VK_TRUE, UINT64_MAX);
 
+	// Acquire next image and check for an out of date swapchain
     uint32_t imageIndex;
-    vkAcquireNextImageKHR(*device->getDevice(), *swapChain->getSwapChain(), UINT64_MAX, imageAvailableSemaphores[currentFrame], nullptr, &imageIndex);
-
+    VkResult result = vkAcquireNextImageKHR(*device->getDevice(), *swapChain->getSwapChain(), UINT64_MAX,
+                                            imageAvailableSemaphores[currentFrame], nullptr, &imageIndex);
+    if (result == VK_ERROR_OUT_OF_DATE_KHR) {
+        return true;
+    }
+    else if (result != VK_SUCCESS && result != VK_SUBOPTIMAL_KHR) {
+        throw std::runtime_error("failed to acquire swap chain image!");
+    }
+	
     if (imagesInFlight[imageIndex] != nullptr) {
         vkWaitForFences(*device->getDevice(), 1, &imagesInFlight[imageIndex], VK_TRUE, UINT64_MAX);
     }
@@ -93,7 +99,17 @@ void Plexity::Renderer::draw()
 
     presentInfo.pImageIndices = &imageIndex;
 
-    vkQueuePresentKHR(device->getPresentQueue()->getQueue(), &presentInfo);
-
+	// Assign present info and recreate the swapchain if the current one is invalid
+    result = vkQueuePresentKHR(device->getPresentQueue()->getQueue(), &presentInfo);
+    if (result == VK_ERROR_OUT_OF_DATE_KHR || result == VK_SUBOPTIMAL_KHR || framebufferResized) {
+        framebufferResized = false;
+        return true;
+    }
+    else if (result != VK_SUCCESS) {
+        throw std::runtime_error("failed to present swap chain image!");
+    }
+	
     currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
+
+    return false;
 }

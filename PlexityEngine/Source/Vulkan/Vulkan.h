@@ -26,12 +26,16 @@ namespace Plexity
 	public:
 		void run();
 
+		Renderer* getRenderer() { return &renderer; }
+		
 	private:
 		void initVulkan();
 
 		void mainLoop();
-
 		void draw();
+
+		void cleanupSwapChain();
+		void recreateSwapChain();
 
 		void cleanup();
 

@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors\glfw\include;C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.148.1\Include;C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\PlexityEngine\Source\Vendors\glfw\include;$(SolutionDir)\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.141.2\Include;$(SolutionDir)\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <EnableModules>true</EnableModules>
@@ -125,7 +125,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.141.2\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors\glfw\include;C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.148.1\Include;C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\PlexityEngine\Source\Vendors\glfw\include;$(SolutionDir)\PlexityEngine\Source\Vendors\glm\glm;C:\VulkanSDK\1.2.141.2\Include;$(SolutionDir)\PlexityEngine\Source\Vendors;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <EnableModules>true</EnableModules>
@@ -147,7 +147,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\PlexityEngine\Source\Vendors\glfw\lib-vc2019;C:\VulkanSDK\1.2.141.2\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

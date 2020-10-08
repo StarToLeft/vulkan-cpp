@@ -22,9 +22,9 @@ namespace Plexity
 	public:
 		static VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats);
 		static VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
-		static VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
+		static VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities, GLFWwindow* window);
 
-		static SwapChain createSwapChain(PhysicalDevice* physicalDevice, LogicalDevice* logicalDevice, Surface* surface, std::optional<VkSwapchainKHR*> oldSwapchain);
+		static SwapChain createSwapChain(PhysicalDevice* physicalDevice, LogicalDevice* logicalDevice, Surface* surface, std::optional<VkSwapchainKHR*> oldSwapchain, GLFWwindow* window);
 
 	public:
 		void destroySwapChain();

@@ -10,7 +10,7 @@ namespace Plexity
 		static RenderPass createRenderPass(LogicalDevice* logicalDevice, SwapChain* swapChain);
 
 	public:
-		void destroyRenderPass();
+		void destroyRenderPass() const;
 
 		VkRenderPass* getRenderPass() { return &renderPass; }
 		

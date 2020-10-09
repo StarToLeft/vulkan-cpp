@@ -183,10 +183,12 @@ void Plexity::VulkanApplication::recreateSwapChain()
 	PX_TRACE("Initialized command buffers.");
 
 	readyToRender = true;
+
+	PX_INFO("Recreated swapchain.");
 }
 
 void Plexity::VulkanApplication::cleanup() {
-	Timer deinitTimer = Timer::startTimer("Vulkan cleanup");
+	auto cleanupTimer = Timer::startTimer("Vulkan cleanup");
 	PX_INFO("Shutting down application.");
 
 	glfwDestroyWindow(window.value());
@@ -199,5 +201,5 @@ void Plexity::VulkanApplication::cleanup() {
 	logicalDevice.destroyLogicalDevice();
 	instance.cleanup();
 
-	deinitTimer.stopTimer(true);
+	cleanupTimer.stopTimer(true);
 }

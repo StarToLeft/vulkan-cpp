@@ -1,10 +1,7 @@
 #include "LogicalDevice.h"
 
-
 #include <set>
 #include <stdexcept>
-
-
 
 #include "../../Queues/Queue.h"
 #include "../../Queues/QueueFamilies.h"
@@ -65,6 +62,7 @@ Plexity::LogicalDevice Plexity::LogicalDevice::createLogicalDevice(VkPhysicalDev
 	
 	LogicalDevice logicalDevice;
 	logicalDevice.device = device;
+	logicalDevice.physicalDevice = physicalDevice;
 	logicalDevice.presentQueue = Queue::createQueue(device, indices.presentFamily.value(), 0);
 	logicalDevice.graphicsQueue = Queue::createQueue(device, indices.graphicsFamily.value(), 0);
 
@@ -74,4 +72,19 @@ Plexity::LogicalDevice Plexity::LogicalDevice::createLogicalDevice(VkPhysicalDev
 void Plexity::LogicalDevice::destroyLogicalDevice()
 {
 	vkDestroyDevice(device, nullptr);
+}
+
+VkSampleCountFlagBits Plexity::LogicalDevice::getUsableSampleCount() {
+	VkPhysicalDeviceProperties physicalDeviceProperties;
+	vkGetPhysicalDeviceProperties(physicalDevice, &physicalDeviceProperties);
+
+	VkSampleCountFlags counts = physicalDeviceProperties.limits.framebufferColorSampleCounts & physicalDeviceProperties.limits.framebufferDepthSampleCounts;
+	if (counts & VK_SAMPLE_COUNT_64_BIT) { return VK_SAMPLE_COUNT_64_BIT; }
+	if (counts & VK_SAMPLE_COUNT_32_BIT) { return VK_SAMPLE_COUNT_32_BIT; }
+	if (counts & VK_SAMPLE_COUNT_16_BIT) { return VK_SAMPLE_COUNT_16_BIT; }
+	if (counts & VK_SAMPLE_COUNT_8_BIT) { return VK_SAMPLE_COUNT_8_BIT; }
+	if (counts & VK_SAMPLE_COUNT_4_BIT) { return VK_SAMPLE_COUNT_4_BIT; }
+	if (counts & VK_SAMPLE_COUNT_2_BIT) { return VK_SAMPLE_COUNT_2_BIT; }
+
+	return VK_SAMPLE_COUNT_1_BIT;
 }

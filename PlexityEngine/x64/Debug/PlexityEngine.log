@@ -1,5 +1,43 @@
-﻿  Using triplet "x64-windows" from "G:\2020\Rust\vcpkg\installed\x64-windows\"
+﻿  Core.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Timer.cpp
+  CommandBuffers.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  CommandPool.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  LogicalDevice.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  PhysicalDevice.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Framebuffers.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  ImageViews.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Instance.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Instance\Instance.cpp(69,21): warning C4018: '<': signed/unsigned mismatch
+  Pipeline.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Queue.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  QueueFamilies.cpp
+  RenderPass.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Renderer.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Shader.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Surface.cpp
+  Swapchain.cpp
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Debug.cpp
+  Validation.cpp
   Vulkan.cpp
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-H:\Projects\C++\PlexityEngine\PlexityEngine\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  PlexityEngine.vcxproj -> H:\Projects\C++\PlexityEngine\PlexityEngine\x64\Debug\PlexityEngine.exe
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Queues\Queue.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anton.hagser\Documents\Projects\vulkan\PlexityEngine\Source\Vulkan\Renderer\Renderer.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  PlexityEngine.vcxproj -> C:\Users\anton.hagser\Documents\Projects\vulkan\x64\Debug\PlexityEngine.exe
